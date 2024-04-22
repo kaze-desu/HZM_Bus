@@ -3,6 +3,7 @@ import { createRouter,createWebHistory } from 'vue-router'
 
 import BuyList from '@/views/BuyList.vue'
 import TimeTable from '@/views/TimeTable.vue'
+import Profile from '@/views/Profile.vue'
 
 export default function()
 {
@@ -11,14 +12,20 @@ export default function()
         routes: [
             {
                 path: '/',
-                name: 'BuyList',
+                name: 'buy',
                 component: BuyList
             },
             {
                 path: '/time',
-                name: 'TimeTable',
+                name: 'time',
                 component: TimeTable
+            },
+            {
+                path:'/profile',
+                name:'profile',
+                component: Profile
             }
         ]
     })
+    return {router}
 }
