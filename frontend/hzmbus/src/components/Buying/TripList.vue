@@ -13,7 +13,7 @@
             </var-space>
             <var-popup v-model:show="center">
             <div class="popup-buy-block" >
-                <BuyPopup :cancel="getCancel"/>
+                <BuyPopup :cancel="getCancel" :from="card.title" :target="card.subtitle" />
                 //TODO: make a buy popup page, transfer the data to the popup page
             </div>
         </var-popup>
