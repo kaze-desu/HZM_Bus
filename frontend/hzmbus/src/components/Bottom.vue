@@ -1,20 +1,23 @@
 <template>
     <var-bottom-navigation v-model:active="active" @change="handleChange" class="bottom" fixed>
-    <var-bottom-navigation-item label="标签" icon="home" />
-    <var-bottom-navigation-item label="标签" icon="magnify" />
-    <var-bottom-navigation-item label="标签" icon="heart" />
-    <var-bottom-navigation-item label="标签" icon="account-circle" />
+    <var-bottom-navigation-item name="buy" label="Buying" icon="home"/>
+    <var-bottom-navigation-item name="time" label="Time" icon="magnify" />
+    <var-bottom-navigation-item name="profile" label="Profile" icon="heart" />
     </var-bottom-navigation>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
 import { Snackbar } from '@varlet/ui'
-const active = ref(0)
+import { useRouter } from 'vue-router'
+const active= ref('')
 
+//TODO: Fingure out how to change the active value
+//TODO fix the error
 function handleChange()
 {
-    Snackbar.info(`changed to ${active}`)
+    const router = useRouter()
+    router.push({name:active.value})
 }
 </script>
 <style scoped>

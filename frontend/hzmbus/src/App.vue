@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { StyleProvider, Themes } from '@varlet/ui';
-import BuyList from '@/components/Buying/BuyList.vue';
+import BuyList from '@/views/BuyList.vue';
 const viewportTheme = Themes.toViewport(Themes.md3Light,{
     // 默认值为 375
   viewportWidth: 750,

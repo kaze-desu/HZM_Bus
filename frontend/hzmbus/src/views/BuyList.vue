@@ -12,9 +12,9 @@
 </template>
 
 <script setup lang="ts">
-import TripList from './TripList.vue';
-import Bottom from '../Bottom.vue';
-import Banner from './Banner.vue';
+import TripList from '@/components/BuyList/TripList.vue'
+import Bottom from '@/components/Bottom.vue';
+import Banner from '@/components/BuyList/Banner.vue';
 
 
 

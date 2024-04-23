@@ -3,7 +3,6 @@ import Varlet from '@varlet/ui'
 import { createApp } from 'vue'
 import '@varlet/ui/es/style'
 import {createPinia} from 'pinia'
-import '@varlet/touch-emulator'
-
+import router from './router'
 const pinia = createPinia()
-createApp(App).use(pinia).use(Varlet).mount('#app')
+createApp(App).use(router).use(pinia).use(Varlet).mount('#app')
