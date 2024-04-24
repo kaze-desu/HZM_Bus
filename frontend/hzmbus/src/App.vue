@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { StyleProvider, Themes } from '@varlet/ui';
 import Bottom from '@/components/Bottom.vue';
+import '@varlet/touch-emulator'
+
 const viewportTheme = Themes.toViewport(Themes.md3Light,{
     // 默认值为 375
   viewportWidth: 750,

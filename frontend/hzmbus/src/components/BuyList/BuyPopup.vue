@@ -44,7 +44,7 @@
 </template>
 <script setup lang="ts">
 //TODO Get the data from TripList.vue then use the feature to search in database or pinia, finally display it in the popup.
-import { defineProps, ref } from 'vue';
+import { ref } from 'vue';
 import { useBuyInfoStore } from '@/store/buyInfo';
 import useBuyInfo from '@/hooks/useBuyInfo';
 
