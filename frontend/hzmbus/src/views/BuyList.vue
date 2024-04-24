@@ -1,5 +1,4 @@
 <template>
-    <var-app-bar title="HZM BUS" fixed title-position="center" />
     <var-row :gutter="[10, 10]" justify="center" >
     <var-col :span="15" direction="column">
         <Banner/>
@@ -8,12 +7,10 @@
         <TripList/>
     </var-col>
     </var-row>
-    <Bottom/>
 </template>
 
 <script setup lang="ts">
-import TripList from '@/components/BuyList/TripList.vue'
-import Bottom from '@/components/Bottom.vue';
+import TripList from '@/components/BuyList/TripList.vue';
 import Banner from '@/components/BuyList/Banner.vue';
 
 
