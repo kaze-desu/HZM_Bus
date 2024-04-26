@@ -36,10 +36,18 @@
             />
         </div>
     </var-overlay>
+    <span class="description">Ticket Amount:</span>
+    <var-space :size="[10, 10]" justify="flex-end">
+        <var-counter class="counter"
+        :min="0" :max="10"
+        v-model="amount"
+        />
+    </var-space>
     <!-- Overlay Part End -->
     <var-space :size="[10, 10]" justify="flex-end">
-        <var-button text type="primary" @click="cancel(false)">Cancel</var-button>
-        <var-button text type="primary" @click="sendBuyInfo(from,target,dateValue,timeValue,0)">Buy</var-button>
+
+        <var-button text type="primary" @click="cancel()">Cancel</var-button>
+        <var-button text type="primary" @click="cancel(sendBuyInfo(from,target,dateValue,timeValue,amount))">Buy</var-button>
     </var-space>
 </template>
 <script setup lang="ts">
@@ -48,14 +56,14 @@ import { ref } from 'vue';
 import { useBuyInfoStore } from '@/store/buyInfo';
 import useBuyInfo from '@/hooks/useBuyInfo';
 
-defineProps(['cancel', 'from','target']);
+defineProps(['from','target','cancel']);
 
 const dateValue = ref('');
 const currentDate = new Date().getDate();
 const datePickShow = ref(false);
 const timePickShow = ref(false);
 const timeValue = ref('')
-const { sendBuyInfo } = useBuyInfo();
+const { sendBuyInfo} = useBuyInfo();
 const allowedDates = (val: string) =>
 {
     const date = new Date(val);
@@ -68,6 +76,7 @@ const allowedTime =
     minutes: (minute:number) => minute % 15 !== 0,
     seconds: (second:number) => second % 2 !== 0,
 }
+const amount = ref(0)
 
 function datePick()
 {

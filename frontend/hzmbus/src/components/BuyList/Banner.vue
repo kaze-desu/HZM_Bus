@@ -14,8 +14,8 @@
 <style scoped>
 .swipe
 {
-    margin-top: 30px;
-    height:140px;
+    margin-top: 55px;
+    height:200px;
     border-radius: 10px;
 }
 .swipe-image
