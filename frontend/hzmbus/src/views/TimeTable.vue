@@ -1,19 +1,12 @@
 <template>
-    <var-app-bar title="HZM BUS" fixed title-position="center" />
-
+    <p style="margin-top: 3%;">TimeTable</p>
+    <TabGroup/>
 </template>
 
 <script setup lang="ts">
-import { onMounted,onUnmounted} from 'vue';
-
-onMounted(() => {
-    console.log('TimeTable mounted');
-});
-onUnmounted(() => {
-    console.log('TimeTable unmounted');
-});
-
+import TabGroup from '@/components/TimeTable/TabGroup.vue'
 </script>
 
 <style scoped>
+
 </style>

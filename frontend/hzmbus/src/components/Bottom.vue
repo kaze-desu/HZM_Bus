@@ -1,5 +1,5 @@
 <template>
-    <var-app-bar title="HZM BUS" fixed title-position="center" />
+    <var-app-bar title="HZM BUS" fixed title-position="center" class="top" />
     <router-view/>
     <var-bottom-navigation v-model:active="active" @change="handleChange" class="bottom" fixed>
     <var-bottom-navigation-item name="buy" label="Buying" icon="home"/>

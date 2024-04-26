@@ -16,9 +16,5 @@ export default function()
         }
 
     }
-    function cancel()
-    {
-        return false;
-    }
     return {sendBuyInfo};
 }

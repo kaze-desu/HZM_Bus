@@ -12,12 +12,18 @@ const viewportTheme = Themes.toViewport(Themes.md3Light,{
   unitPrecision: 6,
 })
 StyleProvider(viewportTheme)
+
 </script>
 
 <template>
+
     <Bottom/>
 </template>
 
-<style scoped>
-
+<style>
+body {
+  transition: background-color .25s, color .25s;
+  color: var(--color-text);
+  background-color: var(--color-body);
+}
 </style>
