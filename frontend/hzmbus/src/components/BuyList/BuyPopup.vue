@@ -87,7 +87,6 @@ function datePick()
 function timePick()
 {
     timePickShow.value = true;
-    console.log(timeValue.value);
 }
 
 const buyInfoStore = useBuyInfoStore();

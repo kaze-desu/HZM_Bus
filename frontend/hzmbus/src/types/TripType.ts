@@ -1,4 +1,4 @@
-export interface TripCardType
+export default interface TripCardType
 {
     title:string;
     subtitle:string;

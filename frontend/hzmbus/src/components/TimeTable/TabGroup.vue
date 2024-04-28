@@ -6,26 +6,33 @@
     >
         <var-tab>
             <var-icon name="map-marker-outline" />
-            <div>ZhuHai</div>
+            <div>HongKong To Macao</div>
         </var-tab>
         <var-tab>
             <var-icon name="map-marker-outline" />
-            <div>HongKong</div>
+            <div>Macao To HongKong</div>
         </var-tab>
         <var-tab>
             <var-icon name="map-marker-outline" />
-            <div>Macao</div>
+            <div>HongKong To ZhuHai</div>
+        </var-tab>
+        <var-tab>
+            <var-icon name="map-marker-outline" />
+            <div>ZhuHai To HongKong</div>
         </var-tab>
     </var-tabs>
     <var-tabs-items v-model:active="active" class="tabs">
     <var-tab-item>
-        <List :city="'ZhuHai'"/>
+        <List :from="'HongKong'" :target="'Macao'"/>
     </var-tab-item>
     <var-tab-item>
-        <List :city="'HongKong'"/>
+        <List :from="'Macao'" :target="'HongKong'"/>
     </var-tab-item>
     <var-tab-item>
-        <List :city="'Macao'"/>
+        <List :from="'HongKong'" :target="'ZhuHai'"/>
+    </var-tab-item>
+    <var-tab-item>
+        <List :from="'ZhuHai'" :target="'HongKong'"/>
     </var-tab-item>
   </var-tabs-items>
 </template>
