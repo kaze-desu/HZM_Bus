@@ -12,9 +12,6 @@
 <script setup lang="ts">
 import TripList from '@/components/BuyList/TripList.vue';
 import Banner from '@/components/BuyList/Banner.vue';
-
-
-
 </script>
 
 <style scoped>

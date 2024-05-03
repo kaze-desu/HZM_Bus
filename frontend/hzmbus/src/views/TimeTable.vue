@@ -1,5 +1,4 @@
 <template>
-    <p style="margin-top: 5%;"></p>
     <TabGroup />
 </template>
 
