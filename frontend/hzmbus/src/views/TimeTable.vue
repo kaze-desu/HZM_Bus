@@ -1,6 +1,6 @@
 <template>
-    <p style="margin-top: 3%;">TimeTable</p>
-    <TabGroup/>
+    <p style="margin-top: 5%;"></p>
+    <TabGroup />
 </template>
 
 <script setup lang="ts">

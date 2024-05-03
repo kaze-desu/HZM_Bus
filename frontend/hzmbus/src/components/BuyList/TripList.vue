@@ -27,7 +27,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TripCardType } from '@/types/TripType';
+import type TripCardType from '@/types/TripType';
 import { reactive, ref } from 'vue';
 import BuyPopup from './BuyPopup.vue';
 const floating = ref(false);
