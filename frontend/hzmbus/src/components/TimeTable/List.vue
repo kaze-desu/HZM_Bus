@@ -5,7 +5,6 @@
         @load="load(from,target)"
     >
         <var-cell :key="item" v-for="item in list">
-        <!--TODO: Filling real data-->
         <var-card
     :title="'Next Bus'"
     :description="'Est:~'+item+' minus | From '+from+' to '+target" />
