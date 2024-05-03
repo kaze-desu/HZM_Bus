@@ -1,5 +1,6 @@
 <template>
     <var-app-bar title="HZM BUS" fixed title-position="center" class="top" />
+    <p style="margin-top: 45px;"></p>
     <router-view/>
     <var-bottom-navigation v-model:active="active" @change="handleChange" class="bottom" fixed>
     <var-bottom-navigation-item name="buy" label="Buying" icon="home"/>
@@ -9,15 +10,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref,watch } from 'vue'
 import { useRouter,RouterView } from 'vue-router'
 const active= ref('')
 const router = useRouter()
 
-function handleChange() {
+function handleChange()
+{
     router.push({ name: active.value })
 }
+watch(ref(router.currentRoute),(newRoute) => {
+    if(newRoute.name!=active.value)
+    {
+        active.value=''
+    }
+})
+
 </script>
+
+
 <style scoped>
 .bottom
 {
