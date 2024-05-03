@@ -14,15 +14,13 @@
 <style scoped>
 .swipe
 {
-    margin-top: 55px;
     height:200px;
     border-radius: 10px;
 }
 .swipe-image
 {
-    width: 100%;
-    height: 100%;
+    width: auto;
+    height: auto;
     object-fit: cover;
-    pointer-events: none;
 }
 </style>
