@@ -10,6 +10,6 @@ This project is a modern project for HZM Bus. It is a web application that provi
 - Database: MySQL
 ### Frontend TODOs
 - [x] Navigation
-- [ ] Ticket booking
+- [x] Ticket booking
 - [ ] Bus schedule
-- [ ] Profile management
+- [x] Profile management
