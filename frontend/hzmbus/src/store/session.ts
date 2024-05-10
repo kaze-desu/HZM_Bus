@@ -6,7 +6,7 @@ export const useSessionStore = defineStore('session',{
         return {
             username:'',
             password:'',
-            status:true
+            status:false
         }
     }
 })

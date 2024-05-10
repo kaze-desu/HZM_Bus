@@ -5,7 +5,7 @@
                 <Cover/>
             </var-col>
             <var-col direction="column">
-                <var-paper :elevation="2"  :height="55" ripple class="paper" @click="toOrder('Ticket')">
+                <var-paper :elevation="2"  :height="100" ripple class="paper" @click="toOrder('Ticket')">
                     <div class="container">
                         <var-icon name="checkbox-marked-circle" :size="17" class="icon"/>
                         <span style="font-size: large;">Check In</span>
@@ -13,7 +13,7 @@
                 </var-paper>
             </var-col>
             <var-col direction="column">
-                <var-paper :elevation="2" :height="55" ripple class="paper" @click="toOrder('Order')">
+                <var-paper :elevation="2" :height="100" ripple class="paper" @click="toOrder('Order')">
                     <div class="container">
                         <var-icon name="checkbox-marked-circle" :size="17" class="icon" />
                         <span style="font-size: large;text-align: center;">All Order</span>
