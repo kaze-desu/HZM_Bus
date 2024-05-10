@@ -1,6 +1,6 @@
 <template>
-    <var-app-bar title="HZM BUS" fixed title-position="center" class="top" />
-    <p style="margin-top: 45px;"></p>
+    <var-app-bar title="HZM BUS" title-position="center" safe-area-top/>
+    <p></p>
     <router-view/>
     <var-bottom-navigation v-model:active="active" @change="handleChange" class="bottom" fixed>
     <var-bottom-navigation-item name="buy" label="Store" icon="home"/>
