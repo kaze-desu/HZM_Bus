@@ -5,7 +5,7 @@ export default await function Ticket()
 {
     async function getRawTicket(user: string):Promise<TicketType[]>
     {
-        const response = await axios.get('test', {
+        const response = await axios.get('http://localhost:8000/api/ticket', {
                 params: {user: user}
                 });
         return response.data;
