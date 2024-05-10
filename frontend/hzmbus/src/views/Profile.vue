@@ -5,25 +5,25 @@
                 <Cover/>
             </var-col>
             <var-col direction="column">
-                <var-paper :elevation="2"  :height="55" ripple class="paper">
+                <var-paper :elevation="2"  :height="55" ripple class="paper" @click="toOrder('Ticket')">
                     <div class="container">
-                        <var-icon name="checkbox-marked-circle" :size="17" class="icon" @click="toOrder('Ticket')"/>
+                        <var-icon name="checkbox-marked-circle" :size="17" class="icon"/>
                         <span style="font-size: small;">Check In</span>
                     </div>
                 </var-paper>
             </var-col>
             <var-col direction="column">
-                <var-paper :elevation="2" :height="55" ripple class="paper">
+                <var-paper :elevation="2" :height="55" ripple class="paper" @click="toOrder('Pending')">
                     <div class="container">
-                        <var-icon name="checkbox-marked-circle" :size="17" class="icon" @click="toOrder('Pending')" />
-                        <span style="font-size: small;">Paid</span>
+                        <var-icon name="checkbox-marked-circle" :size="17" class="icon"  />
+                        <span style="font-size: small;">Pending</span>
                     </div>
                 </var-paper>
             </var-col>
             <var-col direction="column">
-                <var-paper :elevation="2" :height="55" ripple class="paper">
+                <var-paper :elevation="2" :height="55" ripple class="paper" @click="toOrder('Order')">
                     <div class="container">
-                        <var-icon name="checkbox-marked-circle" :size="17" class="icon" @click="toOrder('Order')"/>
+                        <var-icon name="checkbox-marked-circle" :size="17" class="icon" />
                         <span style="font-size: small;">All Order</span>
                     </div>
                 </var-paper>
@@ -36,14 +36,15 @@
 import Cover from '@/components/Profile/Cover.vue'
 const styleVars ={'--paper-background': 'var(--color-secondary-container)',}
 
-import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-const active= ref('')
 const router = useRouter()
 
-function toOrder(typeOfOrder: string) {
-    //TODO need use params to identify which page in order should go.
-    router.push({ name: '' })
+function toOrder(typeOfOrder: string)
+{
+    router.push({
+        name: 'order', params:{
+        type: typeOfOrder
+    }})
 }
 
 </script>

@@ -9,7 +9,7 @@
 import getTicket from '@/hooks/getTicket';
 import { reactive, ref } from 'vue'
 import { useSessionStore } from '@/store/session';
-import type TicketType from '@/types/TicketType';
+import type TicketType from '@/types/BuyInfoType';
 const floating = ref(false);
 const center = ref(false)
 
