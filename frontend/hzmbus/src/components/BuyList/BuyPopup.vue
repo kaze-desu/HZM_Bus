@@ -47,15 +47,17 @@
     <var-space :size="[10, 10]" justify="flex-end">
 
         <var-button text type="primary" @click="cancel()">Cancel</var-button>
-        <var-button text type="primary" @click="cancel(sendBuyInfo(from,target,dateValue,timeValue,amount))">Buy</var-button>
+        <var-button text type="primary" @click="cancel(sendBuyInfo({
+            from:from,
+            target:target,
+            date:dateValue,
+            time:timeValue,
+            amount:amount}))">Buy</var-button>
     </var-space>
 </template>
 <script setup lang="ts">
-//TODO Get the data from TripList.vue then use the feature to search in database or pinia, finally display it in the popup.
 import { ref } from 'vue';
-import { useBuyInfoStore } from '@/store/buyInfo';
 import useBuyInfo from '@/hooks/useBuyInfo';
-
 defineProps(['from','target','cancel']);
 
 const dateValue = ref('');
@@ -88,8 +90,6 @@ function timePick()
 {
     timePickShow.value = true;
 }
-
-const buyInfoStore = useBuyInfoStore();
 
 </script>
 

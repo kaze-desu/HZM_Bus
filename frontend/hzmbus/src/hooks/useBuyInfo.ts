@@ -1,26 +1,37 @@
-//TODO: get the direction of the bus, then return the bus ticket information.
-import { Snackbar } from '@varlet/ui'
-import axios from 'axios'
-export default await function()
+import type TicketType from '@/types/TicketType';
+import { Snackbar } from '@varlet/ui';
+import axios from 'axios';
+import {useSessionStore} from '@/store/session'
+export default await function useBuyInfo()
 {
-    function sendBuyInfo(from:string,target:string,date:string,time:string,amount:number):boolean
+    function sendBuyInfo(infos:TicketType):boolean
     {
-        if(from!=''&&target!=''&&date!=''&&time!=''&&amount>0)
+        var closeWindow = false;
+        if(useSessionStore().status)
         {
-            axios.post('http://localhost:3000/api/buy',{
-                from:from,
-                target:target,
-                date:date,
-                time:time,
-                amount:amount
-            })
-            console.log(`You are buying tickets from ${from} to ${target} on ${date} at ${time} for ${amount} people.`);
-            return false;
+            if(infos.from!=''&&infos.target!=''&&infos.date!=''&&infos.time!=''&&infos.amount>0)
+            {
+                axios.post('http://localhost:3000/api/buy',{
+                    from:infos.from,
+                    target:infos.target,
+                    date:infos.date,
+                    time:infos.time,
+                    amount:infos.amount
+                })
+                return closeWindow;
+            }
+            else
+            {
+                Snackbar["error"]("Please fill in all the information before buying the tickets.");
+                closeWindow = true;
+                return closeWindow;
+            }
         }
         else
         {
-            Snackbar["error"]("Please fill in all the information before buying the tickets.");
-            return true;
+            Snackbar["error"]("Please log in before buying the tickets.");
+            closeWindow = true;
+            return closeWindow;
         }
 
     }
