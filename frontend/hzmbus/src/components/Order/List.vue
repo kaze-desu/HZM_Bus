@@ -13,7 +13,7 @@
             </var-space>
             <var-overlay v-model:show="show" teleport="body">
                     <var-paper :elevation="2" :width="300" :height="300">
-                        //<QRcode ::token="ticket.token"/>
+                        <QRcode ::token="ticket.token"/>
                     </var-paper>
             </var-overlay>
         </template>
