@@ -14,14 +14,13 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import GetTime from '@/hooks/GetTime';
+import GetTime from '@/hooks/getTime';
 defineProps(['from','target']);
 
 const loading = ref(false)
 const finished = ref(false)
 const list = ref<string[]>([])
 
-//TODO realize the time table computing function and move to a specific TS file
 function load(from:string,target:string)
 {
   setTimeout(() => {

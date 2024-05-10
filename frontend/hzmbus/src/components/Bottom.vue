@@ -3,8 +3,8 @@
     <p style="margin-top: 45px;"></p>
     <router-view/>
     <var-bottom-navigation v-model:active="active" @change="handleChange" class="bottom" fixed>
-    <var-bottom-navigation-item name="buy" label="Buying" icon="home"/>
-    <var-bottom-navigation-item name="time" label="Time" icon="magnify" />
+    <var-bottom-navigation-item name="buy" label="Store" icon="home"/>
+    <var-bottom-navigation-item name="time" label="TimeTable" icon="magnify" />
     <var-bottom-navigation-item name="profile" label="Profile" icon="heart" />
     </var-bottom-navigation>
 </template>

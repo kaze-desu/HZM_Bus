@@ -8,7 +8,7 @@
 
 import type internal from "@/types/IntervalType";
 
-export default function GetTime()
+export default function getTime()
 {
     //TODO: instead of database
     /**

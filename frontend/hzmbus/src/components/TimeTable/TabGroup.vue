@@ -22,19 +22,19 @@
         </var-tab>
     </var-tabs>
     <var-tabs-items v-model:active="active" class="tabs">
-    <var-tab-item>
-        <List :from="'HongKong'" :target="'Macao'"/>
-    </var-tab-item>
-    <var-tab-item>
-        <List :from="'Macao'" :target="'HongKong'"/>
-    </var-tab-item>
-    <var-tab-item>
-        <List :from="'HongKong'" :target="'ZhuHai'"/>
-    </var-tab-item>
-    <var-tab-item>
-        <List :from="'ZhuHai'" :target="'HongKong'"/>
-    </var-tab-item>
-  </var-tabs-items>
+        <var-tab-item>
+            <List :from="'HongKong'" :target="'Macao'"/>
+        </var-tab-item>
+        <var-tab-item>
+            <List :from="'Macao'" :target="'HongKong'"/>
+        </var-tab-item>
+        <var-tab-item>
+            <List :from="'HongKong'" :target="'ZhuHai'"/>
+        </var-tab-item>
+        <var-tab-item>
+            <List :from="'ZhuHai'" :target="'HongKong'"/>
+        </var-tab-item>
+    </var-tabs-items>
 </template>
 
 <script setup lang="ts">
