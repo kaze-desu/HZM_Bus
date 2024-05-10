@@ -14,15 +14,11 @@
         </var-tab>
     </var-tabs>
     <var-tabs-items v-model:active="active">
-    <var-tab-item>
-        <var-paper :elevation="2" :width="100" :height="100" />
-        <var-paper :elevation="2" :width="100" :height="100" />
-        <var-paper :elevation="2" :width="100" :height="100" />
+    <var-tab-item name="Ticket">
+        <list type="Ticket" />
     </var-tab-item>
-    <var-tab-item>
-        <var-paper :elevation="2" :width="100" :height="100" />
-        <var-paper :elevation="2" :width="100" :height="100" />
-        <var-paper :elevation="2" :width="100" :height="100" />
+    <var-tab-item name="Order">
+        <list type="Order" />
     </var-tab-item>
 </var-tabs-items>
 </template>

@@ -1,33 +1,54 @@
 <template>
-    <var-paper :elevation="2" :width="100" :height="100" />
-    <var-paper :elevation="2" :width="100" :height="100" />
-    <var-paper :elevation="2" :width="100" :height="100" />
-    <var-paper :elevation="2" :width="100" :height="100" />
+    <var-style-provider :style-vars="styleVars">
+    <var-cell>
+        <var-card v-for="ticket in getTicket().getTicketSimulate(session.username,type)" class="card"
+        :class="[ticket]"
+        :title="'FROM: '+ ticket.from + ' To: ' + ticket.target"
+        :description="'Please check in before: ' + ticket.date + ' ' + ticket.time"
+        v-model:floating="floating"
+        >
+        <template #extra>
+            <var-space>
+                <var-button type="primary" block v-if="type=='Ticket'" @click="show = true">Check In</var-button>
+            </var-space>
+            <var-overlay v-model:show="show" teleport="body">
+                    <var-paper :elevation="2" :width="300" :height="300">
+                        //<QRcode ::token="ticket.token"/>
+                    </var-paper>
+            </var-overlay>
+        </template>
+        </var-card>
+    </var-cell>
+</var-style-provider>
 </template>
 
 <script setup lang="ts">
 import getTicket from '@/hooks/getTicket';
-import { reactive, ref } from 'vue'
+import {  ref } from 'vue'
 import { useSessionStore } from '@/store/session';
-import type TicketType from '@/types/BuyInfoType';
+import QRcode from './QRcode.vue';
 const floating = ref(false);
-const center = ref(false)
-
+const show = ref(false)
 defineProps(['type']);
+const session = useSessionStore();
 
-const loading = ref(false)
-const finished = ref(false)
-const session = useSessionStore()
-const ticket = reactive<TicketType[]>([])
+const styleVars = ref()
 
-function load(type:string)
-{
-    setTimeout(() => {
-        const raw = getTicket().getTicketSimulate(session.username,type);
-        finished.value = true;
-    }, 1000)
+styleVars.value = {
+    '--card-title-margin' : '15px',
+    '--card-subtitle-margin' : '0px',
+    '--card-description-margin' : '0px 0px 0px 0px',
+    '--card-footer-margin' : '0px',
+    '--card-line-height' : '20px',
 }
+
 </script>
 
 <style scoped>
+.card
+{
+    margin-top: 10px;
+    max-height: 320px;
+}
+
 </style>

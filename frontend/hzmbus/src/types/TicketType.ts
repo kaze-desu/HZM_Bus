@@ -6,4 +6,5 @@ export default interface TicketType
     time:string;
     amount:number;
     token:string;
+    status:boolean;
 }

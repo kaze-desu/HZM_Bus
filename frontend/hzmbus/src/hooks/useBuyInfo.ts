@@ -11,6 +11,7 @@ export default await function useBuyInfo()
         {
             if(infos.from!=''&&infos.target!=''&&infos.date!=''&&infos.time!=''&&infos.amount>0)
             {
+                console.log(infos);
                 axios.post('http://localhost:3000/api/buy',{
                     from:infos.from,
                     target:infos.target,

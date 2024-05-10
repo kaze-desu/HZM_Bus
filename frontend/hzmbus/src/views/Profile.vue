@@ -8,7 +8,7 @@
                 <var-paper :elevation="2"  :height="55" ripple class="paper" @click="toOrder('Ticket')">
                     <div class="container">
                         <var-icon name="checkbox-marked-circle" :size="17" class="icon"/>
-                        <span style="font-size: small;">Check In</span>
+                        <span style="font-size: large;">Check In</span>
                     </div>
                 </var-paper>
             </var-col>
@@ -16,7 +16,7 @@
                 <var-paper :elevation="2" :height="55" ripple class="paper" @click="toOrder('Order')">
                     <div class="container">
                         <var-icon name="checkbox-marked-circle" :size="17" class="icon" />
-                        <span style="font-size: small;">All Order</span>
+                        <span style="font-size: large;text-align: center;">All Order</span>
                     </div>
                 </var-paper>
             </var-col>
@@ -48,7 +48,11 @@ function toOrder(typeOfOrder: string)
 }
 .container
 {
-    padding-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
 }
 .icon
 {

@@ -14,7 +14,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import GetTime from '@/hooks/getTime';
+import GetTime from '@/hooks/GetTime';
 defineProps(['from','target']);
 
 const loading = ref(false)

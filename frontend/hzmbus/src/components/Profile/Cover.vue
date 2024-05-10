@@ -6,9 +6,8 @@
 </template>
 
 <script setup lang="ts">
-import { onUnmounted, ref } from 'vue';
+import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-import Bottom from '../Bottom.vue';
 const translateY = ref('100%');
 const router = useRouter();
 
