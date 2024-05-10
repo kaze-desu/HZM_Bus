@@ -1,6 +1,5 @@
 import axios, { type AxiosResponse } from 'axios'
 import { Snackbar } from '@varlet/ui';
-import type TicketType from '@/types/TicketType';
 export default await function Ticket()
 {
     async function getTicket(user: string,type:string)

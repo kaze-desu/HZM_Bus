@@ -1,10 +1,10 @@
-import type TicketType from '@/types/TicketType';
 import { Snackbar } from '@varlet/ui';
 import axios from 'axios';
 import {useSessionStore} from '@/store/session'
+import type BuyInfoType from '@/types/BuyInfoType';
 export default await function useBuyInfo()
 {
-    function sendBuyInfo(infos:TicketType):boolean
+    function sendBuyInfo(infos:BuyInfoType):boolean
     {
         var closeWindow = false;
         if(useSessionStore().status)

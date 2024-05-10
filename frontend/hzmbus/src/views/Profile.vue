@@ -13,14 +13,6 @@
                 </var-paper>
             </var-col>
             <var-col direction="column">
-                <var-paper :elevation="2" :height="55" ripple class="paper" @click="toOrder('Pending')">
-                    <div class="container">
-                        <var-icon name="checkbox-marked-circle" :size="17" class="icon"  />
-                        <span style="font-size: small;">Pending</span>
-                    </div>
-                </var-paper>
-            </var-col>
-            <var-col direction="column">
                 <var-paper :elevation="2" :height="55" ripple class="paper" @click="toOrder('Order')">
                     <div class="container">
                         <var-icon name="checkbox-marked-circle" :size="17" class="icon" />
