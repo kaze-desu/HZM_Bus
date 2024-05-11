@@ -35,7 +35,7 @@ function load(from:string,target:string)
     });
     loading.value = false
 
-    if (list.value.length >= 60) {
+    if (list.value.length >= 10) {
       finished.value = true
     }
   }, 1000)

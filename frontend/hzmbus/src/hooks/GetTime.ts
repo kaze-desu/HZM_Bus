@@ -47,46 +47,32 @@ export default function getTime()
         }
         return intervals;
     }
-
-    //TODO: Fix the bug
     function getTime(from:string,target:string,hour:number,minus:number):number[]
     {
         let waitingList:number[] = [];
         let intervals = interval(from,target);
+
         intervals.forEach((interval) =>
         {
-            let rangeStartHour:number = +interval.range_start.split(":",2)[0];
-            let rangeStartMinus:number = +interval.range_start.split(":",2)[1];
-            let rangeEndHour:number = +interval.range_end.split(":",2)[0];
-            let rangeEndMinus:number = +interval.range_end.split(":",2)[1];
-
-            if(hour >= rangeStartHour && hour <= rangeEndHour)
-            {
-                if(minus == rangeStartMinus)
-                {
-                    waitingList.push(0);
+            let runTime:number = minusConvert(interval.range_start);
+            //let cTime = 360;自定义时间测试
+            let cTime = hour*60+minus;
+            
+            while (runTime<=minusConvert(interval.range_end)){
+                if (runTime >= cTime && runTime-cTime<=120){
+                    waitingList.push(runTime-cTime);
                 }
-                //TODO: The bug is here, keeping output 10, you have to figure out how to get the first time then move to next one.
-                //Also, need to know why keeping output 10 and 25.
-                if(minus <= rangeEndMinus)
-                {
-                    waitingList.push(waitingTime(minus,interval));
-                }
-            }
-            //Include next 2 hours bus
-            else if (hour >= rangeStartHour && 2+hour <rangeEndHour)
-            {
-                waitingList.push(minus+waitingTime(minus,interval));
+                runTime+=interval.interval;
             }
         }
         );
         return waitingList
     }
-    function waitingTime(minus:number,interval:internal):number
-    {
-        let currentRuns:number = minus/interval.interval;
-        let waitingTime:number = (currentRuns+1)*interval.interval-minus;
-        return waitingTime;
+    function minusConvert(time:string):number{
+        let hour:number = +time.split(":",2)[0];
+        let minus:number = +time.split(":",2)[1];
+        let minusTime = hour*60+minus;
+        return minusTime
     }
     return {getTime};
 }
