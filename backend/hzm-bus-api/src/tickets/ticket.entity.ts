@@ -1,13 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToOne,} from 'typeorm';
-import { User } from '../users/user.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne,} from 'typeorm';
 import { Purchase } from '../purchases/purchase.entity';
 
-@Entity()
+@Entity()//车票实体（id,purchase,username,token...)
 export class Ticket {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => Purchase, purchase => purchase.ticket)
+  @OneToOne(() => Purchase, purchase => purchase.ticket)//双向定义一对一关系
   purchase: Purchase;
 
   @Column({length: 100})
