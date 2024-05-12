@@ -1,6 +1,6 @@
 import { Snackbar } from '@varlet/ui';
 import axios from 'axios';
-import {useSessionStore} from '@/store/session'
+import {useSessionStore} from '@/store/Session'
 import type BuyInfoType from '@/types/BuyInfoType';
 export default function()
 {

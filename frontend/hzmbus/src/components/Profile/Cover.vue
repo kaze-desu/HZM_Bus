@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { useSessionStore } from '@/store/session';
+import { useSessionStore } from '@/store/Session';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 const translateY = ref('100%');

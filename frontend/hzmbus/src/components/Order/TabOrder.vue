@@ -26,7 +26,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted, ref} from 'vue'
 import { useRoute,useRouter } from 'vue-router'
-import {useSessionStore} from '@/store/session'
+import {useSessionStore} from '@/store/Session'
 import { Snackbar } from '@varlet/ui';
 import List from './List.vue';
 defineProps(['type'])

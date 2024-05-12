@@ -25,13 +25,13 @@
 <script setup lang="ts">
 import Ticket from '@/hooks/getTicket';
 import {  ref } from 'vue'
-import { useSessionStore } from '@/store/session';
+import { useSessionStore } from '@/store/Session';
 import QRcode from './QRcode.vue';
 const floating = ref(false);
 const show = ref(false)
 defineProps(['type']);
 
-const {getTicket} = Ticket();
+const {getTicket,getTicketSimulate} = Ticket();
 const session = useSessionStore();
 const styleVars = ref()
 
