@@ -14,15 +14,15 @@ export default function()
         var closeWindow = false;
         if(useSessionStore().status)
         {
-            if(infos.from!=''&&infos.target!=''&&infos.date!=''&&infos.time!=''&&infos.amount>0)
+            if(infos.from!=''&&infos.target!=''&&infos.date!=''&&infos.time!=''&&infos.amount>0&&infos.username!='')
             {
-                console.log(infos);
                 axios.post('http://localhost:3000/api/buy',{
                     from:infos.from,
                     target:infos.target,
                     date:infos.date,
                     time:infos.time,
-                    amount:infos.amount
+                    amount:infos.amount,
+                    username:infos.username
                 })
                 return closeWindow;
             }
