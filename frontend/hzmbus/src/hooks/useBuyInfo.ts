@@ -2,8 +2,13 @@ import { Snackbar } from '@varlet/ui';
 import axios from 'axios';
 import {useSessionStore} from '@/store/session'
 import type BuyInfoType from '@/types/BuyInfoType';
-export default await function useBuyInfo()
+export default function()
 {
+    /**
+     * Send the buy information to the database.
+     * @param infos the buy information
+     * @return close the pop window or not. Reminding: the true and false is opposite.
+     */
     function sendBuyInfo(infos:BuyInfoType):boolean
     {
         var closeWindow = false;

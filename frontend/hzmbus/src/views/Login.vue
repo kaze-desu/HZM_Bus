@@ -10,14 +10,16 @@
             <span class="item">Please enter your password</span>
         </var-col>
         <var-col direction="column">
-            <var-button type="primary" class="button" size="large" @click="login().login(username,password)">Login/Register</var-button>
+            <var-button type="primary" class="button" size="large" @click="login(username,password)">Login/Register</var-button>
         </var-col>
     </var-row>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import login from '@/hooks/useAuth';
+import useAuth from '@/hooks/useAuth';
+
+const { login } = useAuth();
 const username = ref('');
 const password = ref('');
 </script>

@@ -1,8 +1,13 @@
 import axios from 'axios'
 import { Snackbar } from '@varlet/ui';
 import type TicketType from '@/types/TicketType';
-export default await function Ticket()
+export default function()
 {
+    /**
+     * Get the Raw data of Ticket from the database.
+     * @param user the user who wants to get the ticket
+     * @returns TicketType(Promise type)
+     */
     async function getRawTicket(user: string):Promise<TicketType[]>
     {
         const response = await axios.get('http://localhost:8000/api/ticket', {
@@ -10,6 +15,12 @@ export default await function Ticket()
                 });
         return response.data;
     }
+    /**
+     * Get the Ticket from the database.
+     * @param user the user who wants to get the ticket
+     * @param type there are two types of ticket: Ticket and AllTicket, Ticket means the ticket which is available, AllTicket means all the ticket.
+     * @returns Ticket list
+     */
     function getTicket(user: string,type:string):TicketType[]
     {
         let allTicket:TicketType[] = [];
@@ -51,6 +62,12 @@ export default await function Ticket()
 
         return ticket;
     }
+    /**
+     * Get the Ticket from the simulate database.
+     * @param user the user who wants to get the ticket
+     * @param type there are two types of ticket: Ticket and AllTicket, Ticket means the ticket which is available, AllTicket means all the ticket.
+     * @returns Ticket list
+     */
     function getTicketSimulate(user: string,type:string):TicketType[]
     {
         let allTicket:TicketType[] = [];
