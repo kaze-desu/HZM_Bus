@@ -1,7 +1,7 @@
 <template>
     <var-style-provider :style-vars="styleVars">
     <var-cell>
-        <var-card v-for="ticket in getTicket().getTicketSimulate(session.username,type)" class="card"
+        <var-card v-for="ticket in getTicket(session.username,type)" class="card"
         :class="[ticket]"
         :title="'FROM: '+ ticket.from + ' To: ' + ticket.target"
         :description="'Please check in before: ' + ticket.date + ' ' + ticket.time"
@@ -23,15 +23,16 @@
 </template>
 
 <script setup lang="ts">
-import getTicket from '@/hooks/getTicket';
+import Ticket from '@/hooks/getTicket';
 import {  ref } from 'vue'
 import { useSessionStore } from '@/store/session';
 import QRcode from './QRcode.vue';
 const floating = ref(false);
 const show = ref(false)
 defineProps(['type']);
-const session = useSessionStore();
 
+const {getTicket} = Ticket();
+const session = useSessionStore();
 const styleVars = ref()
 
 styleVars.value = {
