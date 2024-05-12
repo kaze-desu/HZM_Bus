@@ -11,6 +11,6 @@ async function bootstrap() {
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
     credentials: true,  // 如果需要发送cookies或认证相关信息
   });
-  await app.listen(3001);
+  await app.listen(8000);
 }
 bootstrap();
