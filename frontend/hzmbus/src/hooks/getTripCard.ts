@@ -48,22 +48,28 @@ export default function()
     {
         let trips:TripCardType[] = [];
         trips.push({
-            title:"A",
-            subtitle:"B",
-            description:"C",
-            details:"D"
+            title:"From HongKong",
+            subtitle:"To ZhuHai",
+            description:"*One Way only",
+            details:""
         });
         trips.push({
-            title:"E",
-            subtitle:"F",
-            description:"G",
-            details:"H"
+            title:"From ZhuHai",
+            subtitle:"To HongKong",
+            description:"^One Way only",
+            details:""
         });
         trips.push({
-            title:"I",
-            subtitle:"J",
-            description:"K",
-            details:"L"
+            title:"From HongKong",
+            subtitle:"To Macao",
+            description:"*One Way only",
+            details:""
+        });
+        trips.push({
+            title:"From Macao",
+            subtitle:"To HongKong",
+            description:"^One Way only",
+            details:""
         });
         return trips;
     }

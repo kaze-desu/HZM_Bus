@@ -1,7 +1,6 @@
 import axios from "axios";
 import {useSessionStore} from '@/store/Session';
 import { Snackbar } from '@varlet/ui';
-
 export default function()
 {
     /**

@@ -1,6 +1,8 @@
 import axios from 'axios'
 import { Snackbar } from '@varlet/ui';
 import type TicketType from '@/types/TicketType';
+import { useOrderStore } from '@/store/Order';
+import { reactive } from 'vue';
 export default function()
 {
     /**
@@ -14,53 +16,6 @@ export default function()
                 params: {user: user}
                 });
         return response.data;
-    }
-    /**
-     * Get the Ticket from the database.
-     * @param user the user who wants to get the ticket
-     * @param type there are two types of ticket: Ticket and AllTicket, Ticket means the ticket which is available, AllTicket means all the ticket.
-     * @returns Ticket list
-     */
-    function getTicket(user: string,type:string):TicketType[]
-    {
-        let allTicket:TicketType[] = [];
-        let ticket:TicketType[] = [];
-        try{
-            const raw = getRawTicket(user);
-            raw.then((data:any) => {
-                let temp:[] = data['products']
-                temp.forEach((element:any) => {
-                    allTicket.push({
-                        from:element['from'],
-                        target:element['target'],
-                        date:element['date'],
-                        time:element['time'],
-                        amount:element['amount'],
-                        token:element['token'],
-                        status:element['status']
-                    });
-                });
-            });
-        }catch(e)
-        {
-            Snackbar.error(e as string);
-            return [];
-        }
-        if(type == 'Ticket')
-        {
-            allTicket.forEach((element) => {
-                if(element.status == true)
-                {
-                    ticket.push(element);
-                }
-            });
-        }
-        else
-        {
-            ticket = allTicket;
-        }
-
-        return ticket;
     }
     /**
      * Get the Ticket from the simulate database.
@@ -115,5 +70,5 @@ export default function()
         return ticket;
     }
 
-    return { getTicket,getTicketSimulate };
+    return { getRawTicket };
 }

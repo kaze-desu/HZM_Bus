@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import useAuth from '@/hooks/useAuth';
 import { useSessionStore } from '@/store/Session';
 import { useRouter } from 'vue-router';
@@ -25,15 +25,26 @@ import { Snackbar } from '@varlet/ui';
 const { login } = useAuth();
 const username = ref('');
 const password = ref('');
+const router = useRouter();
 onMounted(() => {
     if(useSessionStore().status)
     {
         setTimeout(() => {
             Snackbar["success"]("You have already logged in.");
         }, 1000);
-        useRouter().back();
+        router.back();
     }
 })
+watch(() => useSessionStore().status, (newVal) => {
+    if(newVal)
+    {
+        setTimeout(() => {
+            Snackbar["success"]("Login successfully.");
+        }, 1000);
+        router.back();
+    }
+})
+
 </script>
 
 <style scoped>

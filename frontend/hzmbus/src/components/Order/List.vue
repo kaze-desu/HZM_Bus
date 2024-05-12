@@ -1,7 +1,7 @@
 <template>
     <var-style-provider :style-vars="styleVars">
     <var-cell>
-        <var-card v-for="ticket in getTicket(session.username,type)" class="card"
+        <var-card v-for="ticket in tickets" :key="ticket.id" class="card"
         :class="[ticket]"
         :title="'FROM: '+ ticket.from + ' To: ' + ticket.target"
         :description="'Please check in before: ' + ticket.date + ' ' + ticket.time"
@@ -24,16 +24,21 @@
 
 <script setup lang="ts">
 import Ticket from '@/hooks/getTicket';
-import {  ref } from 'vue'
+import {  ref,reactive,onMounted } from 'vue'
 import { useSessionStore } from '@/store/Session';
 import QRcode from './QRcode.vue';
+import type TicketType from '@/types/TicketType'
+import { useOrderStore } from '@/store/Order';
 const floating = ref(false);
 const show = ref(false)
+const tickets = ref();
+
 defineProps(['type']);
 
-const {getTicket,getTicketSimulate} = Ticket();
+const {getRawTicket} = Ticket();
 const session = useSessionStore();
 const styleVars = ref()
+const order = useOrderStore();
 
 styleVars.value = {
     '--card-title-margin' : '15px',
@@ -43,6 +48,9 @@ styleVars.value = {
     '--card-line-height' : '20px',
 }
 
+onMounted(async () => {
+      tickets.value = await getRawTicket(session.username);
+    });
 </script>
 
 <style scoped>
