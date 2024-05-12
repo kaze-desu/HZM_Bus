@@ -1,23 +1,28 @@
 import { Snackbar } from '@varlet/ui';
 import axios from 'axios';
-import {useSessionStore} from '@/store/session'
+import {useSessionStore} from '@/store/Session'
 import type BuyInfoType from '@/types/BuyInfoType';
-export default await function useBuyInfo()
+export default function()
 {
+    /**
+     * Send the buy information to the database.
+     * @param infos the buy information
+     * @return close the pop window or not. Reminding: the true and false is opposite.
+     */
     function sendBuyInfo(infos:BuyInfoType):boolean
     {
         var closeWindow = false;
         if(useSessionStore().status)
         {
-            if(infos.from!=''&&infos.target!=''&&infos.date!=''&&infos.time!=''&&infos.amount>0)
+            if(infos.from!=''&&infos.target!=''&&infos.date!=''&&infos.time!=''&&infos.amount>0&&infos.username!='')
             {
-                console.log(infos);
                 axios.post('http://localhost:3000/api/buy',{
                     from:infos.from,
                     target:infos.target,
                     date:infos.date,
                     time:infos.time,
-                    amount:infos.amount
+                    amount:infos.amount,
+                    username:infos.username
                 })
                 return closeWindow;
             }

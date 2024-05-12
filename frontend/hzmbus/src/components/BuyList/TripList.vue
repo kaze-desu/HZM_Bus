@@ -19,7 +19,7 @@
     </template>
     <template #floating-content>
         <var-divider dashed/>
-        <div class="card-example-text">
+        <div>
             {{card.details}}
         </div>
     </template>
@@ -27,21 +27,14 @@
 </template>
 
 <script setup lang="ts">
-import type TripCardType from '@/types/TripType';
 import { reactive, ref } from 'vue';
 import BuyPopup from './BuyPopup.vue';
+import getTripCard from '@/hooks/getTripCard'
+
+const {getTripCardSimulate} = getTripCard();
 const floating = ref(false);
 const center = ref(false)
-const tripCard:TripCardType = reactive({
-    title: 'FROM',
-    subtitle: 'TO',
-    description: 'Description of the content',
-    details: 'Further details about the content'
-});
-const tripCards:TripCardType[] = reactive([]);
-tripCards.push(tripCard);
-tripCards.push(tripCard);
-
+const tripCards = reactive(getTripCardSimulate());
 function getCancel(value: boolean)
 {
     center.value = value;

@@ -52,12 +52,14 @@
             target:target,
             date:dateValue,
             time:timeValue,
-            amount:amount}))">Buy</var-button>
+            amount:amount,
+            username:username}))">Buy</var-button>
     </var-space>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
 import useBuyInfo from '@/hooks/useBuyInfo';
+import { useSessionStore } from '@/store/Session';
 defineProps(['from','target','cancel']);
 
 const dateValue = ref('');
@@ -66,6 +68,7 @@ const datePickShow = ref(false);
 const timePickShow = ref(false);
 const timeValue = ref('')
 const { sendBuyInfo} = useBuyInfo();
+const username = useSessionStore().username;
 const allowedDates = (val: string) =>
 {
     const date = new Date(val);

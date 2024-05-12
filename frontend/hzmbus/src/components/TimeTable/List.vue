@@ -14,18 +14,18 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import GetTime from '@/hooks/GetTime';
+import Time from '@/hooks/getTime';
 defineProps(['from','target']);
 
 const loading = ref(false)
 const finished = ref(false)
 const list = ref<string[]>([])
-
+const {getTime} = Time();
 function load(from:string,target:string)
 {
   setTimeout(() => {
 
-    let timeTable = GetTime().getTime(from, target, new Date().getHours(), new Date().getMinutes());
+    let timeTable = getTime(from, target, new Date().getHours(), new Date().getMinutes());
     timeTable.forEach(element => {
       if(element<=1)
       {

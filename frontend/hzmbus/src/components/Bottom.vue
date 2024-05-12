@@ -2,10 +2,11 @@
     <var-app-bar title="HZM BUS" title-position="center" safe-area-top/>
     <p></p>
     <router-view/>
-    <var-bottom-navigation v-model:active="active" @change="handleChange" class="bottom" fixed>
-    <var-bottom-navigation-item name="buy" label="Store" icon="home"/>
+    <p style="margin-top: 10%;"></p>
+    <var-bottom-navigation variant  v-model:active="active" @change="handleChange" class="bottom" fixed>
+    <var-bottom-navigation-item name="buy" label="Store" icon="shopping"/>
     <var-bottom-navigation-item name="time" label="TimeTable" icon="magnify" />
-    <var-bottom-navigation-item name="profile" label="Profile" icon="heart" />
+    <var-bottom-navigation-item name="profile" label="Profile" icon="account-circle" />
     </var-bottom-navigation>
 </template>
 

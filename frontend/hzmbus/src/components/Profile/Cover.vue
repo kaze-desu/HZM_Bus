@@ -6,7 +6,7 @@
 </template>
 
 <script setup lang="ts">
-import { useSessionStore } from '@/store/session';
+import { useSessionStore } from '@/store/Session';
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 const translateY = ref('100%');
@@ -46,6 +46,7 @@ function toLogin()
   color: var(--color-on-tertiary-container);
   background-color: #ffffff70;
   font-size: 50px;
+  color:#2C122A;
 }
 
 .cover

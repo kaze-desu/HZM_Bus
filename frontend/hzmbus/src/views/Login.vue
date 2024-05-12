@@ -10,16 +10,30 @@
             <span class="item">Please enter your password</span>
         </var-col>
         <var-col direction="column">
-            <var-button type="primary" class="button" size="large" @click="login().login(username,password)">Login/Register</var-button>
+            <var-button type="primary" class="button" size="large" @click="login(username,password)">Login/Register</var-button>
         </var-col>
     </var-row>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
-import login from '@/hooks/useAuth';
+import { onMounted, ref } from 'vue';
+import useAuth from '@/hooks/useAuth';
+import { useSessionStore } from '@/store/Session';
+import { useRouter } from 'vue-router';
+import { Snackbar } from '@varlet/ui';
+
+const { login } = useAuth();
 const username = ref('');
 const password = ref('');
+onMounted(() => {
+    if(useSessionStore().status)
+    {
+        setTimeout(() => {
+            Snackbar["success"]("You have already logged in.");
+        }, 1000);
+        useRouter().back();
+    }
+})
 </script>
 
 <style scoped>

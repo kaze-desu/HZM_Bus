@@ -1,9 +1,14 @@
 import axios from "axios";
-import {useSessionStore} from '@/store/session';
+import {useSessionStore} from '@/store/Session';
 import { Snackbar } from '@varlet/ui';
 
-export default function useUser()
+export default function()
 {
+    /**
+     * Login function
+     * @param username the username
+     * @param password the password
+     */
     function login(username: string, password: string)
     {
         if(username.length<8 || password.length<8)

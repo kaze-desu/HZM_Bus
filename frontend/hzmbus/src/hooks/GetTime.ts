@@ -7,10 +7,10 @@
  */
 
 import type internal from "@/types/IntervalType";
+import axios from 'axios'
 
-export default function getTime()
+export default await function()
 {
-    //TODO: instead of database
     /**
      * return the waiting time for the next bus which depends on the from and target.
      * @param from from which location
@@ -47,6 +47,55 @@ export default function getTime()
         }
         return intervals;
     }
+    /**
+     * Get the Raw data of Time Table from the database.
+     * @param from from which location
+     * @param target to which location
+     * @returns Intervals(Promise type)
+    */
+    async function internalRawDatabase(from:string,target:string):Promise<internal[]>
+    {
+        const response = await axios.get('http://localhost:8000/api/times', {
+                params: {from,target}
+                });
+        return response.data
+    }
+    /**
+     * Get the Time Table from the database.
+     * @param from from which location
+     * @param target to which location
+     * @returns Intervals
+    */
+    function intervalDatabase(from:string,target:string):internal[]
+    {
+        let intervals:internal[] = [];
+        try{
+            const raw = internalRawDatabase(from,target);
+            raw.then((data:any) => {
+                let temp:[] = data['products']
+                temp.forEach((element:any) => {
+                    intervals.push({
+                        range_start:element['range_start'],
+                        range_end:element['range_end'],
+                        interval:element['interval']
+                    });
+                });
+            });
+        }catch(e)
+        {
+            console.log(e);
+            return [];
+        }
+        return intervals;
+    }
+    /**
+     * Get the waiting time for the next bus.
+     * @param from from which location
+     * @param target to which location
+     * @param hour current system hour
+     * @param minus current system minus
+     * @returns waitingList
+     */
     function getTime(from:string,target:string,hour:number,minus:number):number[]
     {
         let waitingList:number[] = [];
@@ -57,7 +106,7 @@ export default function getTime()
             let runTime:number = minusConvert(interval.range_start);
             //let cTime = 360;自定义时间测试
             let cTime = hour*60+minus;
-            
+
             while (runTime<=minusConvert(interval.range_end)){
                 if (runTime >= cTime && runTime-cTime<=120){
                     waitingList.push(runTime-cTime);
@@ -68,11 +117,17 @@ export default function getTime()
         );
         return waitingList
     }
+    /**
+     * Convert the time to minus.
+     * @param time time in string format
+     * @returns minusTime
+     */
     function minusConvert(time:string):number{
         let hour:number = +time.split(":",2)[0];
         let minus:number = +time.split(":",2)[1];
         let minusTime = hour*60+minus;
         return minusTime
     }
+    
     return {getTime};
 }

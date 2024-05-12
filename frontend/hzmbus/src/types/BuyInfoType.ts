@@ -5,5 +5,5 @@ export default interface BuyInfoType
     date:string;
     time:string;
     amount:number;
-
+    username:string;
 }
