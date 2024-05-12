@@ -8,15 +8,18 @@ import { User } from '../users/user.entity';
 export class TicketsService {
   constructor(
     @InjectRepository(Ticket)
-    private ticketsRepository: Repository<Ticket>,
-    @InjectRepository(User)
-    private usersRepository: Repository<User>,
+    private ticketsRepository: Repository<Ticket>
   ) {}
 
   async findByUser(username: string): Promise<Ticket[]> {
-    const user = await this.usersRepository.findOne({
-      where: { username },
+    const rawTickets = await this.ticketsRepository.find();
+    let tickets: Ticket[] = [];
+    rawTickets.forEach(ticket => {
+      if(ticket.username == username) {
+        tickets.push(ticket);
+        console.log(ticket);
+      }
     });
-    return user.tickets;
+    return tickets;
   }
 }
