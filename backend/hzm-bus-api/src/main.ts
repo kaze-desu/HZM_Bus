@@ -11,6 +11,6 @@ async function bootstrap() {
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
     credentials: true,
   });
-  await app.listen(8000);
+  await app.listen(3001);
 }
 bootstrap();

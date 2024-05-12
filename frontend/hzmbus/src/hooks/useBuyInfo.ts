@@ -16,7 +16,7 @@ export default function()
         {
             if(infos.from!=''&&infos.target!=''&&infos.date!=''&&infos.time!=''&&infos.amount>0&&infos.username!='')
             {
-                axios.post('http://localhost:8000/api/buy',{
+                axios.post('http://localhost:3000/api/buy',{
                     from:infos.from,
                     target:infos.target,
                     date:infos.date,

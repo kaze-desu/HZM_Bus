@@ -1,14 +1,9 @@
-import { Entity, PrimaryGeneratedColumn, Column ,OneToOne,JoinColumn} from 'typeorm';
-import { Ticket } from '../tickets/ticket.entity';
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
 export class Purchase {
   @PrimaryGeneratedColumn()
   id: number;
-
-  @OneToOne(() => Ticket, ticket => ticket.purchase)
-  @JoinColumn()
-  ticket: Ticket;
 
   @Column({ length: 100 })
   from: string;
