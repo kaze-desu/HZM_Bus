@@ -28,8 +28,8 @@ export default function()
         try{
             const raw = getRawTicket(user);
             raw.then((data:any) => {
-                for(let element of data)
-                {
+                let temp:[] = data['products']
+                temp.forEach((element:any) => {
                     allTicket.push({
                         from:element['from'],
                         target:element['target'],
@@ -39,20 +39,18 @@ export default function()
                         token:element['token'],
                         status:element['status']
                     });
-                }
+                });
             });
         }catch(e)
         {
             Snackbar.error(e as string);
             return [];
         }
-        console.log("ticket");
         if(type == 'Ticket')
         {
             allTicket.forEach((element) => {
                 if(element.status == true)
                 {
-                    console.log(element);
                     ticket.push(element);
                 }
             });
@@ -61,6 +59,7 @@ export default function()
         {
             ticket = allTicket;
         }
+
         return ticket;
     }
     /**

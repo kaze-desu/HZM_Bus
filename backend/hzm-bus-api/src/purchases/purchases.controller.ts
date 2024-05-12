@@ -1,13 +1,17 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, HttpException, HttpStatus } from '@nestjs/common';
 import { PurchasesService } from './purchases.service';
-import { Purchase } from './purchase.entity';
 
 @Controller('api')
 export class PurchasesController {
   constructor(private readonly purchasesService: PurchasesService) {}
 
   @Post('buy')
-  async create(@Body() purchase: Purchase, @Body('username') username: string) {
-    return this.purchasesService.create(purchase, username);
+  async buyTicket(@Body() body: any) {
+    try {
+      const result = await this.purchasesService.create(body);
+      return { success: true, message: 'Purchase successful.', data: result };
+    } catch (error) {
+      throw new HttpException('Purchase failed', HttpStatus.BAD_REQUEST);
+    }
   }
 }
