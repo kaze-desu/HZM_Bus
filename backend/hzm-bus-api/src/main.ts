@@ -9,7 +9,7 @@ async function bootstrap() {
     preflightContinue: false,
     optionsSuccessStatus: 204,
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
-    credentials: true,  
+    credentials: true,
   });
   await app.listen(8000);
 }
