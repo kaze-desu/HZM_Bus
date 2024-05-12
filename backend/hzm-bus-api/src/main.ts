@@ -9,8 +9,8 @@ async function bootstrap() {
     preflightContinue: false,
     optionsSuccessStatus: 204,
     allowedHeaders: 'Origin, X-Requested-With, Content-Type, Accept',
-    credentials: true,  
+    credentials: true,  // 如果需要发送cookies或认证相关信息
   });
-  await app.listen(8000);
+  await app.listen(3001);
 }
 bootstrap();

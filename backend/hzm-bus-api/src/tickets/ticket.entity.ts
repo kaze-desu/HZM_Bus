@@ -1,17 +1,13 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToOne,} from 'typeorm';
-import { User } from '../users/user.entity';
-import { Purchase } from '../purchases/purchase.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { User } from '../users/user.entity';  // 确保路径正确
 
 @Entity()
 export class Ticket {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @OneToOne(() => Purchase, purchase => purchase.ticket)
-  purchase: Purchase;
-
-  @Column({length: 100})
-  username: string;
+  @ManyToOne(() => User, user => user.tickets)
+  user: User;
 
   @Column({ length: 100 })
   from: string;
