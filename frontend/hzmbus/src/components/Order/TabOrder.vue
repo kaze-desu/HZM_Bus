@@ -42,7 +42,7 @@ onMounted(() => {
     else
     {
         Snackbar["error"]("Please log in before check the tickets.");
-        router.back()
+        router.push({ name: 'login' });
     }
 })
 onUnmounted(() => {

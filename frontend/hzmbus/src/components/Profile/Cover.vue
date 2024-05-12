@@ -46,6 +46,7 @@ function toLogin()
   color: var(--color-on-tertiary-container);
   background-color: #ffffff70;
   font-size: 50px;
+  color:#2C122A;
 }
 
 .cover

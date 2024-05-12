@@ -8,7 +8,7 @@
                 <var-paper :elevation="2"  :height="100" ripple class="paper" @click="toOrder('Ticket')">
                     <div class="container">
                         <var-icon name="checkbox-marked-circle" :size="17" class="icon"/>
-                        <span style="font-size: large;">Check In</span>
+                        <span style="font-size: large;font-weight: bold;">Check In</span>
                     </div>
                 </var-paper>
             </var-col>
@@ -16,7 +16,7 @@
                 <var-paper :elevation="2" :height="100" ripple class="paper" @click="toOrder('Order')">
                     <div class="container">
                         <var-icon name="checkbox-marked-circle" :size="17" class="icon" />
-                        <span style="font-size: large;text-align: center;">All Order</span>
+                        <span style="font-size: large;font-weight: bold;">All Order</span>
                     </div>
                 </var-paper>
             </var-col>
@@ -26,7 +26,7 @@
 
 <script setup lang="ts">
 import Cover from '@/components/Profile/Cover.vue'
-const styleVars ={'--paper-background': 'var(--color-secondary-container)',}
+const styleVars ={'--paper-background': '#DEE1F9',}
 
 import { useRouter } from 'vue-router'
 const router = useRouter()

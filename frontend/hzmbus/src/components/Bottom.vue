@@ -3,10 +3,10 @@
     <p></p>
     <router-view/>
     <p style="margin-top: 10%;"></p>
-    <var-bottom-navigation v-model:active="active" @change="handleChange" class="bottom" fixed>
-    <var-bottom-navigation-item name="buy" label="Store" icon="home"/>
+    <var-bottom-navigation variant  v-model:active="active" @change="handleChange" class="bottom" fixed>
+    <var-bottom-navigation-item name="buy" label="Store" icon="shopping"/>
     <var-bottom-navigation-item name="time" label="TimeTable" icon="magnify" />
-    <var-bottom-navigation-item name="profile" label="Profile" icon="heart" />
+    <var-bottom-navigation-item name="profile" label="Profile" icon="account-circle" />
     </var-bottom-navigation>
 </template>
 
